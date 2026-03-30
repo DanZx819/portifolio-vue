@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "~pages": ["./node_modules/.cache/vite-plugin-pages"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
