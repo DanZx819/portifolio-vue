@@ -47,10 +47,21 @@ const aboutData = ref({
   p2: "Hoje, estou focado em me profissionalizar na área de desenvolvimento web, com ênfase em tecnologias modernas como Vue.js e React no front-end, além de Laravel e NestJS no back-end. Tenho como objetivo me tornar um desenvolvedor completo, capaz de construir aplicações eficientes, escaláveis e bem estruturadas, sempre buscando aprendizado contínuo e crescimento profissional.",
 });
 // Handlers
-const handleCtaClick = () => {
-  // Scroll suave para a seção de projetos ou redirecionar
-  console.log("CTA clicado!");
-};
+const handleProjectButton = (sectionId) => {
+  const element = document.getElementById(sectionId) || document.querySelector(`.${sectionId}`)
+  
+  if (element) {
+    const headerOffset = 80 // Altura do header
+    const elementPosition = element.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    })
+  }
+}
+
 
 const handleContactClick = () => {
   // Redirecionar para página de contato ou abrir modal
@@ -68,7 +79,7 @@ const handleContactClick = () => {
       :titulo="heroData.titulo"
       :descricao="heroData.descricao"
       :texto-botao="heroData.textoBotao"
-      @cta-click="handleCtaClick"
+      @cta-click="handleProjectButton('projects')"
     />
 
     <!-- Skills Section -->
