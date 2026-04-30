@@ -31,9 +31,6 @@
           <div class="project-info">
             <h3>{{ project.name }}</h3>
             
-            <p class="framework">
-              <strong>Framework:</strong> {{ project.framework }}
-            </p>
 
             <div class="links">
               <a :href="project.url" target="_blank" class="btn-view">
